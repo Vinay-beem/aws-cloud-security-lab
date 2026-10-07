@@ -1,1 +1,252 @@
-Hands-on AWS cloud security lab covering IAM, EC2 hardening, S3 security, CloudTrail, GuardDuty, and security investigations.
+# AWS Cloud Security Monitoring Lab
+
+A hands-on AWS cloud security lab designed to help beginners understand and implement fundamental cloud security concepts using Terraform and native AWS security services.
+
+---
+
+## 🎯 Goal
+
+The goal of this project is to build a small AWS security environment and understand how different cloud security controls work together.
+
+The lab follows a practical, step-by-step approach where each AWS component is explained before it is deployed.
+
+By following this repository, you will learn how to build, secure, monitor, and investigate a basic AWS environment using Infrastructure as Code.
+
+---
+
+## 🧠 Learning Objectives & Technologies
+
+Through this lab, you will learn:
+
+- AWS Identity and Access Management (IAM)
+- Principle of Least Privilege
+- Infrastructure as Code (IaC) using Terraform
+- EC2 security and basic hardening
+- Security Groups and network access control
+- S3 security and access control
+- AWS CloudTrail logging
+- Amazon GuardDuty threat detection
+- Basic cloud security investigation
+- Understanding security events and indicators
+- Basic incident investigation and response
+
+### Technologies & AWS Services Used
+
+- Terraform
+- AWS CLI
+- AWS IAM
+- Amazon EC2
+- Amazon S3
+- Security Groups
+- AWS CloudTrail
+- Amazon GuardDuty
+- Linux
+
+---
+
+## 🏗️ Lab Architecture
+
+```text
+                         AWS CLOUD
+                             │
+             ┌───────────────┼───────────────┐
+             │               │               │
+             ▼               ▼               ▼
+           IAM             EC2              S3
+      Least Privilege   Linux Server    Secure Storage
+                             │
+                      Security Group
+                             │
+                             ▼
+                         Monitoring
+                             │
+                    ┌────────┴────────┐
+                    │                 │
+                    ▼                 ▼
+                CloudTrail        GuardDuty
+                API Logging      Threat Detection
+                    │                 │
+                    └────────┬────────┘
+                             ▼
+                    Security Investigation
+```
+
+---
+
+## 📋 Prerequisites
+
+Before starting the lab, make sure you have:
+
+- An AWS account
+- AWS CLI installed in your PC to Communicate with AWS from your Command line
+- Terraform installed to make 
+- Git installed
+- Basic command-line knowledge
+- Basic understanding of networking and cybersecurity concepts
+
+You should also understand that AWS resources may incur charges depending on your account, region, and usage.
+
+---
+
+# 🚀 Lab Steps
+
+The lab is divided into several stages. Complete each stage in order.
+
+### 1. Terraform Setup
+
+Learn how Terraform works and configure it to communicate with AWS.
+
+📁 Guide: [`terraform/README.md`](terraform/README.md)
+
+---
+
+### 2. IAM — Least Privilege
+
+Create and understand an IAM policy that provides only the permissions required for security monitoring.
+
+📁 Guide: [`iam/README.md`](iam/README.md)
+
+---
+
+### 3. EC2 — Secure Compute
+
+Deploy a Linux EC2 instance and configure its Security Group to restrict network access.
+
+📁 Guide: [`ec2/README.md`](ec2/README.md)
+
+---
+
+### 4. S3 — Secure Storage
+
+Create an S3 bucket and apply security controls such as restricted access and encryption.
+
+📁 Guide: [`s3/README.md`](s3/README.md)
+
+---
+
+### 5. CloudTrail — AWS Activity Logging
+
+Configure CloudTrail and learn how AWS API activity can be recorded and investigated.
+
+📁 Guide: [`cloudtrail/README.md`](cloudtrail/README.md)
+
+---
+
+### 6. GuardDuty — Threat Detection
+
+Enable GuardDuty and understand how AWS can identify potentially suspicious activity.
+
+📁 Guide: [`guardduty/README.md`](guardduty/README.md)
+
+---
+
+### 7. Security Investigation
+
+Use the information collected from AWS security services to investigate a simulated security event.
+
+The investigation will focus on:
+
+- Who performed the action?
+- What action was performed?
+- When did it happen?
+- What resource was affected?
+- Where did the activity originate?
+- Was the activity authorized?
+- What should the security analyst do next?
+
+---
+
+## 🧪 Test Scenarios
+
+The lab will include practical security scenarios such as:
+
+- Reviewing suspicious AWS API activity
+- Investigating IAM activity
+- Reviewing EC2 network exposure
+- Checking S3 access configuration
+- Understanding GuardDuty findings
+- Identifying potential security misconfigurations
+
+The scenarios will be documented as they are actually performed during the lab.
+
+---
+
+## 📸 Evidence & Results
+
+Each major stage of the lab will include evidence such as:
+
+- AWS Console screenshots
+- Terraform output
+- Security configuration
+- CloudTrail events
+- GuardDuty findings
+- Investigation results
+
+Evidence will be organized inside the relevant project folders.
+
+---
+
+## 💰 Cost & Cleanup
+
+AWS resources can potentially incur charges.
+
+After completing the lab, destroy Terraform-managed resources with:
+
+```bash
+terraform destroy
+```
+
+Always verify your AWS Console after cleanup and make sure unwanted resources are no longer running.
+
+> **Important:** AWS Free Tier eligibility and pricing can vary by account, service, region, and current AWS policies. Check AWS pricing before deploying resources.
+
+---
+
+## 📚 What I Learned
+
+This section will be updated as the lab is completed.
+
+Topics will include:
+
+- What I learned about AWS IAM
+- How least privilege works in practice
+- How AWS network access is controlled
+- How cloud storage can be secured
+- How AWS activity can be monitored
+- How CloudTrail can support investigations
+- How GuardDuty contributes to threat detection
+- How Terraform can be used to manage cloud infrastructure
+
+---
+
+## 🎯 Conclusion
+
+This lab demonstrates how fundamental AWS security controls can work together to protect, monitor, and investigate a cloud environment.
+
+The project is designed to provide practical experience with AWS security services while also demonstrating Infrastructure as Code using Terraform.
+
+---
+
+## ⚠️ Security Notes
+
+**Never commit sensitive credentials or secrets to this repository.**
+
+Do not upload:
+
+- AWS Access Keys
+- AWS Secret Access Keys
+- SSH private keys
+- Passwords
+- API tokens
+- Terraform state files containing sensitive information
+- Other confidential information
+
+Use `.gitignore` to prevent sensitive Terraform files and credentials from being committed accidentally.
+
+---
+
+## ⭐ Project Status
+
+**Status:** 🚧 In Progress
+
+This repository is being built step-by-step. Each section will be completed, tested, and documented as the lab progresses.
