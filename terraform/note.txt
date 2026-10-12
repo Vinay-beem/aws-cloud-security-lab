@@ -1,0 +1,29 @@
+
+Main.tf
+3. Understand the important parts
+Terraform code	Meaning
+resource "aws_iam_policy" ...	Defines an IAM policy in AWS.
+jsonencode()	Converts the Terraform policy object into JSON.
+Effect = "Allow"	Allows the specified actions, subject to other applicable IAM controls.
+Action = [...]	Lists the API actions permitted by this policy.
+Resource = "*"	Uses a broad resource scope; narrower scopes are preferable where supported.
+resource "aws_security_group" ...	Creates a virtual firewall.
+ingress	Controls incoming connections.
+egress	Controls outgoing connections.
+cidr_blocks = ["YOUR_PUBLIC_IP/32"]	Restricts inbound SSH to one public IPv4 address.
+
+Variables.tf
+How variables work
+Variable	Purpose	Default
+aws_region	AWS deployment region	ap-south-1
+instance_type	EC2 instance size	t3.micro
+allowed_ssh_cidr	IP allowed to SSH	Your IP /32
+instance_name	EC2 name tag	AWS-Security-Lab-EC2
+environment	Resource identification tag	Security-Lab
+
+
+# One thing to remember: Terraform variable names are case-sensitive, and the var. prefix tells Terraform to use a declared input variable.
+# After making these changes, run:
+# terraform fmt
+# terraform validate
+# terraform plan 
